@@ -1,0 +1,156 @@
+/* Factorial of a number. 5! = 5*4*3*2*1.
+I'll go it here by recursion which I just call it recursively by decresin value of the number
+*/
+#include <bits/stdc++.h>
+using namespace std;
+
+int Factorial(int n){
+    if(n==0 || n ==1){
+        return n;
+    }
+    else{
+        return Factorial(n-1)*n;
+    }
+}
+int main(){
+    int n;
+    cin>>n;
+    cout<<Factorial(n);
+}
+
+/* int num;
+for(int i = 2; i<n; i++){
+    int result =  num*i;
+}
+return result
+*/
+
+
+/* program to print fibonacci series of a number
+
+fibonnaci series : The sum of previous two numbers give the next number .
+
+0 1 1 2 3 5 8 13
+
+t1 = 0;
+t2 = 1;
+next term = t1 + t2 = 0+1 = 1;
+
+And than, we will make t1 to t2 i.e t1 has value of t2, t2 will be modified to next term
+i.e now t2 is the next term. And then the process of the next term = t1 + t2 will continue
+within a for loop and we will get the value of the fibonacci series.
+*/
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int Fibonacci(int num){
+    int t1 = 0;
+    int t2 = 1; 
+    int nextTerm;
+    for(int i = 0; i<num; i++){
+        cout<< t1 << endl;
+
+        nextTerm = t1 +t2;
+        t1 = t2;
+        t2 = nextTerm;
+    }
+    return nextTerm;
+}
+
+
+int main(){
+    int n;
+    cin>>n;
+    cout<<Fibonacci(n);
+    return 0;
+}
+
+
+// ncr = n! / (n-r)!*r! it is done by simpy putting on the formula and done this all by just using the factorial function
+#include <bits/stdc++.h>
+using namespace std;
+
+int Factorial(int n){
+    if(n==0 || n ==1){
+        return n;
+    }
+    else{
+        return Factorial(n-1)*n;
+    }
+}
+int main(){
+    int n,r;
+    cin>> n,r;
+    int ans = Factorial( n)/Factorial(r)*Factorial( n -r);
+    cout << ans<< endl;
+}
+
+
+/* By using pascals triangle i.e
+            1=0C0
+        1=1C0       1=1C1
+    1=2C0       2=2C1      2=2C3  1=2C4
+1=3C1       3=3C1       3=3C2      1=3C3 
+
+on all the extremes there is zero and at between their is sum of
+the above previous and the next term.
+
+So, making C before as i and C after as j;
+and than making the above i-1 and i+1 as = the given answer
+
+
+
+int Factorial(int n){
+    if(n==0 || n ==1){
+        return n;
+    }
+    else{
+        return Factorial(n-1)*n;
+    }
+
+
+int main(){
+    for(int i = 0; i<n ; i++){
+        for(int j =0; j<i; j++){
+            cout<< fac(i)/fac(j)*fac(i-j);
+        }
+    }
+}
+*/
+
+
+
+
+
+/* prtogram to print all the prime numbers between a and b
+Optimized code...... */
+
+
+#include<iostream>
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool isPrime(int num){
+    for(int i = 2; i< sqrt(num); i ++){
+        if(num %i == 0){
+            return false;
+        }
+        return true;
+    }
+}
+
+int main(){
+    int a,b;
+    cin>> a >> b;
+
+    for(int i =a; i<b; i++){
+        if((isPrime(i)) == true){
+            cout << i << endl;
+        }
+    }
+
+}
