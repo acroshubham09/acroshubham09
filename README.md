@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @acroshubham09
 - 👀 I’m interested in Compititive Coding
 - 🌱 I’m currently learning DS and Algorithms
-- 💞️ I’m looking to collaborate on projects on Software Development09
+- 💞️ I’m looking to collaborate on projects on Software Development
 - 📫 How to reach me acroshubham12@gmail.com Instagram @acroshubam
 
 <!---
