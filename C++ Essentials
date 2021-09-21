@@ -1,0 +1,754 @@
+STRUCTURE:
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+// class Arithmatic{
+//     int a, b;
+
+//     public:
+//     // constructor initializing a and b.
+//     Arithmatic (int a, int b)
+//     {
+//         // refers to private member of class
+//         // pointer to current object
+//         this -> a=a;
+//         this -> b=b;
+//         // a and b data members of ar object
+//     }
+//     int add(){
+//         int c;
+//         c=a+b;
+//         return c;
+//     }
+//     int sub(){
+//         int c;
+//         c=a-b;
+//     }
+// };
+
+// int main(){
+//     Arithmatic ar(10,5);// constructor is called
+
+//     cout << "add" << ar.add()<<endl;
+//     cout << "sub" << ar.sub();
+
+//     return 0;
+// }
+
+// Implementation outside the class.
+// Making it template that is generic that is it suuports any data type.
+// easy method to make it template first make the class, run, when it's error free, than convert it to template.
+template< class T>
+class Arithmatic{
+    T a, b;
+
+    public:
+    // constructor initializing a and b.
+    Arithmatic (T a, T b);
+    T add();
+    T sub();
+};
+// template finished 
+        // refers to private member of class
+        // pointer to current object
+    template <class T>
+    Arithmatic<T>:: Arithmatic (T a, T b){
+        this -> a=a;
+        this -> b=b;
+        // a and b data members of ar object
+    }
+    template <class T>
+    T Arithmatic<T>::add(){
+        T c;
+        c=a+b;
+        return c;
+    }
+    template <class T>
+     T Arithmatic<T>::sub(){
+        T c;
+        c=a-b;
+    } 
+
+int main(){
+    Arithmatic<float> ar(10.55,5.56);// constructor is called
+
+    cout << "add " << ar.add()<<endl;
+    cout << "sub " << ar.sub();
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+2. STRUCTURE AS PARAMETER TO A FUNCTION:
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// struct Rec{
+//     int l , b;
+// };
+
+// // take struct rec as parameter
+// // parameter type call by value
+// void fun (struct Rec r ){
+
+    // r.l = 20; it will not make any change in the main fuction as it's pass by value
+//     cout <<"Length: " << r.l<< endl << "Breadth: " << r.b << endl;
+// }
+
+// int main(){
+//     Rec r = {10, 5};
+//     cout << "Length " << r.l <<  endl << "and breadth "<< r.b<< endl;
+//     fun(r);
+// }
+
+// call by Address
+
+// 
+
+
+
+//Create a variable  of type structure inside heap and return its pointer
+
+struct Rectangle{
+     int l , b;
+};
+
+// function return pointer of type rectangle;
+// read fun: create obj of type rec using a pointer it is creating an obj in heap initializing l and b to certain and returning the address of that structure. Strucutre created in heap and its address is returned by the function
+
+struct Rectangle *fun(){
+    struct Rectangle *p;
+
+    p = new Rectangle;
+    p-> l = 34;
+    p-> b =  54;
+    return p;
+}
+
+int main(){
+    // fun not take any para. Create its object and returning the address.
+    struct Rectangle *ptr = fun();
+    cout<< "len" << ptr ->l << endl << "bre"<< ptr -> b << endl; 
+}
+
+// obj is not created inside main. its created in fun and utilized in main returning pointer to a structure.
+
+
+
+
+
+POINTER
+
+#include <bits/stdc++.h>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+
+// Defn, decln and intialization to a pointer.
+
+// int main(){
+
+// int a = 10;
+// int *p; // decln of ponter
+// p=&a;
+// //* at point of decln and time and derefrencing point.
+// cout<<"using pointer "<<*p; // it's direfrencing
+// cout << p << &a; // gives addresee
+// }
+
+// POITNER TO AN ARRAY
+
+// int main(){
+//     int arr[5] = {4,5,7,8,2};
+//     int *p;
+//     p=arr;
+//     /* Where is & in here, the thing is that we don't need 
+//     it here in the case of an array. This is the syntax.
+//     arr is itself starting point or address of the array
+//     */
+//     // declare a specific element of an array
+//     p=&arr[0];
+
+//     // access all this element using pointer.
+
+//     for(int i=0; i<6; i++){
+//         // cout<<arr[i]<< endl;
+//         // access using pointer
+//         cout<<p[i]<<endl;
+//     }
+// }
+
+// Creating Array in heap
+
+// int main(){
+//     int *p;// inside stack
+//     p = (int*)malloc(5*sizeof(int)); // in heap c language
+//     p = new int[5]; // c++ language it is dynamic allocation of memory
+//     p[0] = 1; p[1] = 12; p[2] = 13; p[3] = 14; p[4] = 18; 
+//     for(int i = 0; i<6; i++){
+//         cout<< p[i] << endl;
+//         // one has to deallocate heap memory as it's dynamic allocation its upto the user to delete the memory if the memory is not required
+
+//         delete [] p; // c++
+//         free(p);// c
+//     }
+//     return 0;
+    
+// }
+
+
+// Anohter important thing about pointer.
+
+struct Rectangle{
+    int length;
+    int breadth;
+};
+
+
+int main(){
+    int *p1;
+    char *p2;
+    float *p3;
+    double *p4;
+    struct Rectangle *p5;
+
+    cout<< sizeof(p1)<< endl;//4
+    cout<< sizeof(p2)<< endl;//1
+    cout<< sizeof(p3)<< endl;//4
+    cout<< sizeof(p4)<< endl;//4
+    cout<< sizeof(p5);// 8
+
+    // but it'll take same size i.e 4 every and every data type
+
+}
+
+
+
+
+
+
+POINTER TO A STRUCTURE:
+
+
+
+#include <bits/stdc++.h>
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+using namespace std;
+
+struct Rectangle{
+    int length;
+    int breadth;
+};
+int main(){
+    // declare variable of type structure and initialize it with 10 and 5
+    //struct : no use to write it in c++ program.
+    
+    // object of Rectangle
+    //  Rectangle R={10,5};
+     
+
+    //  // access
+    // //  cout<<R.breadth<< endl;
+
+    // // pointer *p to this assign the address of object of type Rectangle
+    // Rectangle *p =&R;
+    // cout<< p-> length<< endl;
+    // cout<< p-> breadth << endl;
+
+    // Create Object or Rectangle in heap
+    Rectangle *p;
+    // 1. Declare a pointer. And it'll be created in stack.
+    
+
+    // c code
+    p = (struct Rectangle*)malloc(sizeof(struct Rectangle));
+    // malloc function will allocte the memory. How much memory? The memory consumed by Rectangle Object or structure. So, total Struct Rectanle memory
+    // malloc function return void pointer so, typen cast it to sruct rec type
+    
+    // c++ code
+    p = new Rectangle;
+
+    // Initilization of members of object
+    p  -> length = 10;
+    p ->  breadth = 20;
+
+    cout<< p->length<< endl;
+    cout<< p->breadth << endl;
+}
+
+
+
+
+
+
+
+
+FUCTION
+
+
+/* function: piece of code perfroming some task
+Why need?
+To reduce work load from the main function
+Help in acheiving, modular way of programming.
+Helps in big projects
+*/
+
+#include <bits/stdc++.h>
+
+using namespace std;
+// declaration of a function
+// return type function name, parameter it have
+int add(int x, int y){
+// body of a function
+
+//to store result
+    int c;
+    c = x+y;
+return c;
+
+}
+
+ int main(){
+     // decln of the actual parameter.
+     // intilizn of the actural parameter.
+      int a =10;
+      int b =16;
+
+     // function call and passing actual parameters to it.
+     int d=add(a,b); 
+     // now it has to be saved in some variable, to which function result and the answer will be copied to that variable
+    cout<<d<<endl;
+    cout<<add(a,b); 
+    // or one can directly call the function as its return value will be pasted to the output terminal
+ }
+
+ /* NOW what happens at run time.
+ Debugger at main function
+ Activation record of main function or stack frame of main function will be formed in the main memory
+ than, the variable a,b,d will be declared and initialized with the given value.
+ Than it will come to the next, here in variable d, function call is taking place.
+ So, now control will go to the add function
+ Activation record or the stack frame of add function will be made in the memory
+ Than, formal variables will be fromed x,yand z and their values will be initizlized.
+ Than, given mathematical expression takes place and in z the value is pasted.
+ Now the function returns the answer and upon returning the activation record of add function is deleted
+ from the memory stack and than control comes back to the main function.
+
+ Now, the value gets pasted in d and the result is printed out to the terminal.
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ PARAMETER PASSING IN FUNCTION:
+ 
+ 
+ 
+ 
+ 
+ /* Ther are three types of parameter passing, 
+1. Call by value: When no change in actual parameter is to be made.
+2. Call by Address: When change is need to be made. As when one has to swap the content in the actual variable
+here pass by value fails.
+* used to allocate memory in heap.
+* used when one has to access the data at the given address by &variable
+& passed variable address to the allocated pointer for the variables.
+*/
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// // 1. Pass by value : use when one has to not alter the actual parameter.
+// // As, one do for add function
+
+// int add(int x, int y){
+//     int z;
+//     z= x+y;
+//     return z;
+// }
+
+// int main(){
+//     int a,b,sum;
+//     a = 20; 
+//     b = 40;
+//     sum = add(a , b);
+
+//     cout << sum;
+
+//     return 0;
+// }
+
+/* call by value:
+add(int x){
+    x++;
+    cout<<x;
+    return 0;
+}
+main(){
+    int a = 10;
+    cout<< add(x)
+    cout<<x;
+}
+
+formal parameter is modified but, there is no change in the actual parameter.
+fuction process something and return a result. Mainly when you have to return something, not in void function
+*/
+// Terminal : 11, 10
+
+// 2. Call By Address
+
+// void swap(int *x, int *y){
+//     int temp;
+//     *x=temp; //*x and * y are derefrencing operators for accessing the value *x access a and *y access b
+//     *x= *y;
+//     *y = temp;
+// }
+
+// int main(){
+//     int a, b, c;
+//     cin>> a>>b;
+//     swap(&a,&b);
+//     cout<< a << b;
+// }
+
+/* Explanation of Syntax
+First, thing in call by address is that the parameters must be poiners
+When we pass the address of actural parameter and that are taken in formal parameter
+When to use:
+Formal parameter are pointers. So, these parameters indirectly access the data of actual parameter.
+Do not have to return anything as result are directly modified.
+Swap function modify two variable and a function can return only one resylt. So, these are use here.
+Third, when one has to modify the same address
+*/
+
+/*
+3. Call by refrence. 
+Refrence: It's nothing but the nickhame given to the variables c language do not consists it.
+
+What it do is it acheives the monolythich way of programming as the machine code is now directly pasted in the main function.
+As the changes are directly made to the variables of the main function.
+
+It's not prefred for the big projects where one has big function with loops and all. So, it can be applied to the simple functions.
+
+The syntax is just to use & sign before the variable and the tast is done.
+*/
+
+void swap(int &x , int &y){
+    int temp;
+    x = temp;
+    x=y;
+    y = temp;
+}
+int main(){
+    int a,b;
+    cin>> a >> b;
+    swap(a,b);
+    cout << a << endl << b << endl;
+
+    return 0;
+}
+
+
+ARRAY AS PARAMETER
+
+#include <bits/stdc++.h>
+
+using namespace std;
+// void fun(int A[ ], int n){
+//     for(int i = 0; i<n; i++){
+//         cout<<A[i];
+//     }
+//     // tells size of Array
+// }  // Arrays are always passed by Address
+// int main(){
+//     int A[] = {3,5,2,5,2};
+//     int n = 5;
+//     cout<<sizeof(A)/sizeof(int)<<endl;
+//     fun(A,n);
+//     for(int x:A){
+//         cout<<x << " ";
+//     }
+// }
+
+/* Here I have created an array of function fun that helps to redifine the 
+array without any change in the main function. Usually one passes array as well 
+as its size in the function the changes made in the fun function will difinitley hinder
+the one which is in main function. So, the array A is indirectly Accesing the array of main
+function as, Arrays arr pass by refrence.
+*/
+
+
+// fuction returning an arraay
+// Creating an array inside a function and returning its address
+
+// funn will create an array and returns its pointer
+int *fun(int size){
+    int *p; // pointer
+    // creating an array;
+
+    p = new int[size];
+    for(int i = 0; i<size; i++){
+        p [i] = i +1;
+    }
+    return p;
+}
+
+int main(){
+    int * ptr,sz=5;
+    ptr = fun(sz);
+
+    for(int i = 0; i<sz; i++){
+        cout<< ptr[i] << endl;
+
+        return 0;
+    }
+}
+
+// didn't get answer
+
+
+
+
+STRUCTURE AS PARAMETER
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// struct Rec{
+//     int l , b;
+// };
+
+// // take struct rec as parameter
+// // parameter type call by value
+// void fun (struct Rec r ){
+
+    // r.l = 20; it will not make any change in the main fuction as it's pass by value
+//     cout <<"Length: " << r.l<< endl << "Breadth: " << r.b << endl;
+// }
+
+// int main(){
+//     Rec r = {10, 5};
+//     cout << "Length " << r.l <<  endl << "and breadth "<< r.b<< endl;
+//     fun(r);
+// }
+
+// call by Address
+
+// 
+
+
+
+//Create a variable  of type structure inside heap and return its pointer
+
+struct Rectangle{
+     int l , b;
+};
+
+// function return pointer of type rectangle;
+// read fun: create obj of type rec using a pointer it is creating an obj in heap initializing l and b to certain and returning the address of that structure. Strucutre created in heap and its address is returned by the function
+
+struct Rectangle *fun(){
+    struct Rectangle *p;
+
+    p = new Rectangle;
+    p-> l = 34;
+    p-> b =  54;
+    return p;
+}
+
+int main(){
+    // fun not take any para. Create its object and returning the address.
+    struct Rectangle *ptr = fun();
+    cout<< "len" << ptr ->l << endl << "bre"<< ptr -> b << endl; 
+}
+
+// obj is not created inside main. its created in fun and utilized in main returning pointer to a structure.
+
+
+
+
+REFRENCE OF GENERIC CLASS IS C++
+
+
+
+
+
+
+
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// struct Rec{
+//     int l , b;
+// };
+
+// // take struct rec as parameter
+// // parameter type call by value
+// void fun (struct Rec r ){
+
+    // r.l = 20; it will not make any change in the main fuction as it's pass by value
+//     cout <<"Length: " << r.l<< endl << "Breadth: " << r.b << endl;
+// }
+
+// int main(){
+//     Rec r = {10, 5};
+//     cout << "Length " << r.l <<  endl << "and breadth "<< r.b<< endl;
+//     fun(r);
+// }
+
+// call by Address
+
+// 
+
+
+
+//Create a variable  of type structure inside heap and return its pointer
+
+struct Rectangle{
+     int l , b;
+};
+
+// function return pointer of type rectangle;
+// read fun: create obj of type rec using a pointer it is creating an obj in heap initializing l and b to certain and returning the address of that structure. Strucutre created in heap and its address is returned by the function
+
+struct Rectangle *fun(){
+    struct Rectangle *p;
+
+    p = new Rectangle;
+    p-> l = 34;
+    p-> b =  54;
+    return p;
+}
+
+int main(){
+    // fun not take any para. Create its object and returning the address.
+    struct Rectangle *ptr = fun();
+    cout<< "len" << ptr ->l << endl << "bre"<< ptr -> b << endl; 
+}
+
+// obj is not created inside main. its created in fun and utilized in main returning pointer to a structure.
+
+
+
+
+
+
+
+REFRENCE OR GENERIC CLASSES IN C++
+
+
+
+
+
+
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+// class Arithmatic{
+//     int a, b;
+
+//     public:
+//     // constructor initializing a and b.
+//     Arithmatic (int a, int b)
+//     {
+//         // refers to private member of class
+//         // pointer to current object
+//         this -> a=a;
+//         this -> b=b;
+//         // a and b data members of ar object
+//     }
+//     int add(){
+//         int c;
+//         c=a+b;
+//         return c;
+//     }
+//     int sub(){
+//         int c;
+//         c=a-b;
+//     }
+// };
+
+// int main(){
+//     Arithmatic ar(10,5);// constructor is called
+
+//     cout << "add" << ar.add()<<endl;
+//     cout << "sub" << ar.sub();
+
+//     return 0;
+// }
+
+// Implementation outside the class.
+// Making it template that is generic that is it suuports any data type.
+// easy method to make it template first make the class, run, when it's error free, than convert it to template.
+template< class T>
+class Arithmatic{
+    T a, b;
+
+    public:
+    // constructor initializing a and b.
+    Arithmatic (T a, T b);
+    T add();
+    T sub();
+};
+// template finished 
+        // refers to private member of class
+        // pointer to current object
+    template <class T>
+    Arithmatic<T>:: Arithmatic (T a, T b){
+        this -> a=a;
+        this -> b=b;
+        // a and b data members of ar object
+    }
+    template <class T>
+    T Arithmatic<T>::add(){
+        T c;
+        c=a+b;
+        return c;
+    }
+    template <class T>
+     T Arithmatic<T>::sub(){
+        T c;
+        c=a-b;
+    } 
+
+int main(){
+    Arithmatic<float> ar(10.55,5.56);// constructor is called
+
+    cout << "add " << ar.add()<<endl;
+    cout << "sub " << ar.sub();
+
+    return 0;
+}
+
+
+#PROJECT COMPLETE
+
+
+
+
