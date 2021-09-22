@@ -1,1 +1,380 @@
+RECURSIVE SUM....
+
+/*
+    The function recrusively calls itself by making a big problem smaller. When we call it for the value 5. 
+    Proceedures:
+                                        Sum(5)
+                                    10   /\
+                                    S(4) +  Print value i.e summation 0f 5 is done here = 15;
+                                6  /\
+                                S(3) +  4 = 10;
+                             3  /\
+                            S(2) + 3 = 6;       return 3 to the above function. Why? is it returning 3 to the function above. As let's imagine, the activation recored of sum(5) is being created it will make call for Sum of 4 but, the summation part will done at returning time as the first statement is to just call the function with decreased value n until 0. Now s5 -> s4 -> s3 -> s2 -> s1 -> s0. Now the if statement sees that the value has became 0. So, it terminates the function call. Now it is the returning time or descending time of the function. S1 calls s0. So, in s0 the summation 0f n will be done which is 1 in this case. How to understand it? Start from the top branch not from down as its a whole damn confusing to start from down.
+                        1   /\
+                        S(1) + 2 = 3;           return 1 to above function
+                        /\           ^ 
+                    S(0) + 1 = 0;    |  
+
+What's happening here? 
+The function s(5) calls till s0 dono think sofsomething as a number it's a function call. Now. The value of sof0 will be pasted to sof1 so, one can see that 
+the summation gives 3, than we'll go furthur and do it again till s4 reaches here, the value has became 10 and finally 10 is added to the number and we get here
+the result. 
+
+    THIS IS HOW THE WHOLE RECURSION WORKS.
+*/
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int Sum(int n){
+    if(n==0|| n ==1){
+        return n;
+    }
+    return Sum(n-1) +n;
+    
+}
+
+int main(){
+    int x = 5;
+    cout<<Sum(x);
+}
+
+
+
+
+
+
+
+
+2.FACTORIAL WITH THE HELP OF RECURSION
+
+
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int factorial (int n){
+    if ( n == 0 || n ==1){
+        return n;
+    }
+    return factorial(n-1)*n;
+}
+
+int main(){
+    int x =5;
+    int s = factorial(x);
+    cout<< s;
+}
+
+
+
+
+
+
+
+
+
+HEAD AND TAIL RECURSION.
+
+
+
+
+/* Recursion: When a function calls itself to perform some task,
+than that is known as Recursion. Mainly a big function calls itself with
+small chunks of function that perform the task to make a big task small.
+
+Recursion makes the use of stack, so, it's memory costly.
+
+There are various types of Recursion:
+1. Tail Recursion
+2. Head Recursion
+3. Tree Recursion
+4. Indirect Recursion
+5. Nested Recursion
+*/
+
+// 1. Tail Recursion
+// #include <bits/stdc++.h>
+
+// using namespace std;
+
+// void fun(int n){
+//     if(n>0){
+//         cout<< n;
+//         return fun(n-1);
+//     }
+// }
+
+// int main(){
+//     int n = 5;;
+//     fun(n);
+//     return 0;
+// }
+
+/* Tail Recursion : First Printing is done and than, fun calls itself with decreasin value of n.
+op: will be 3 2 1. It can also be said as if one say you to that :
+1. Go to next room.
+2. Turn on the light.
+
+You will go to next room and than to next till n.
+And at the returning time, you will turn on the light and than you will follow the sequence as 54321.
+*/
+
+
+
+
+//2. Head Recursion
+
+
+
+
+// #include <bits/stdc++.h>
+
+// using namespace std;
+
+// void fun(int n){
+//     if(n>0){
+//         return fun(n-1);
+//         cout<< n;
+//     }
+// }
+
+// int main(){
+//     int n = 5;;
+//     fun(n);
+//     return 0;
+// }
+
+
+/*First the function will be called and than, the value will be printed.
+ i.e.
+ 1. Turn on the light 
+ 2. Than move to next room.
+*/
+
+
+
+EXPONENTIAL POWER OF N TO M
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int pow(int m, int n){
+    if(n ==0 ||n ==1){
+        return pow(m,n-1)*m;
+    }
+}
+int main(){
+    int x =5;
+    int s = pow(4,6);
+    cout<< s;
+}
+
+// Optimized
+
+/*
+int pow(int m, int n){
+    if (n==0 || n==1){
+        return n
+    }
+    if(n%2 == 0){
+        return (m*m,n/2);
+    }
+    else{
+        return m*pow(m*m, (n-1)/2);
+    }
+}
+*/
+
+
+
+
+
+
+COMBINATION OR NCR IS USING RECURSION
+/*
+    The code is made possible with the help of Pascals triangle: The sum of extremes gives the middle element
+            1
+        1   2   1
+      1   3   3   1
+    1   4   6   4   1
+
+    The sum of upper right elemts and left element gives the element present at down.
+*/ 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int C(int n, int r){
+    if(n==0 || n==r){
+        return 1;
+    }
+    return C(n-1,r-1) + C(n+1, r);
+
+}
+
+int main(){
+
+}
+
+
+
+
+
+FIBBONNACI USING RECUSION
+
+#include<bits/stdc++.h>
+using namespace std;
+int fib(int n){
+    if(n<=1) return n;
+
+    return fib(n-2) + fib (n-1);
+}
+
+/*
+ Optimized code through memoization.
+ First, one will form an array of -1, and mark it when we will find the element
+|```````````````````````````````````````````````````````````````|
+  -1 , -1 , -1, -1 , -1 , -1,, -1,-1,-1,-1,-1,-1,-1,-1,-1,-1, -1
+|_______________________________________________________________|
+
+int fib(int n){
+    if(n<1){
+        f[n] =n;
+        return n;
+    }
+    else if(fib[n-2] == -1){
+        fib[n-2] = fib(n-2);
+    }
+    else if(fib[n-1] == -1){
+        fib[n-1] = fib(n-1);
+    }
+    return fib(n-2) + fib(n-1);
+    }
+}
+*/
+
+
+
+
+
+
+
+
+TAYLOR'S SERIES USING RECURSION
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int e(int x, int n){
+    static int p,f =1;
+    if(n==0){
+        return 0;
+    }
+        int r = e(x,n-1);
+        p= p*x;
+        f=f*n;
+    return r + p/f;
+}
+
+int main(){
+    int x = 5;
+    int d = 5;
+    int s = e(x,d);
+    cout <<s;
+}
+
+/*
+  By Honer's rules: i.e taking common
+  int e(int x, int n){
+      for(;n>0;n--){
+        s = 1+x/n*s;
+        return e(x,n-1); 
+      }
+      return s;
+  }
+*/
+
+
+
+
+
+
+
+MOST FAMOUS ******* TOWER OF HANOI USING RECURSION
+
+ /*             |                       |                           |
+             
+              ===== 1                                                  
+                |                       |                           |
+
+             ======== 2
+                |                       |                           |
+                                                                     
+           ============= 3           
+                |                       |                           |
+        ------------------    ---------------------     ------------------------   
+                A(SOURCE)               B(USING)                    C(DESTINATION)
+= Disk 1
+== Disk 2
+=== Disk 3
+
+Task: move all the disks from one Tower to another using the thrid disk.
+Rule.1. One Disk can be moved at one time.
+     2. No big disk over a small disk can be present.
+
+A=321    
+
+A321                                  B                               C
+A32                                   B                               C1
+A3                                    B2                              C1
+A3                                    B21                             C
+A                                     B21                             C3
+A1                                    B2                              C3
+A1                                    B                               C32
+A                                     B                               C321 i.e  1
+                                                                                2
+                                                                                3
+
+Using Tower B from Source A the disk 1 is moved to destination C
+Using Tower C moved disk 2 to Destination B from source A.
+Using Tower A moved disk 1 to Destination B from source C.
+Using Tower B moved disk 3 to Destination C from source A.
+Using Tower C moved disk 1 to Destination A from source B.
+Using Tower A moved disk 2 to Destination C form source B. Now C has the two disks 3 and 2 big and than small orderly
+Lastly, Using Tower B moved disk 3 to Destination C from source A. 
+Finally all the disks are moved to the tower C.
+
+In super easy language or the super difficult logic, move (n-1) disks to b and than Using move the first disk to C
+And using tower C move the (n-1) disks to C.
+
+*/ 
+
+#include <bits/stdc++.h>
+// #include <stdio.h>
+// #include <stdlib.h>
+using namespace std;
+
+void TowerOFHanoi(int n, int A, int B, int C){
+    if(n>0){
+        TowerOFHanoi(n-1,A,C,B);
+        // From Source A to Destination B using Tower C.
+        printf("(%d,%d)",A,C);
+        TowerOFHanoi(n-1,B,A,C);
+        // From Source B to Destination C using Tower B.
+    }
+}
+
+
+int main(){
+    TowerOFHanoi(3,1,2,3);
+    return 0;
+}
+
 
