@@ -1,1 +1,2139 @@
+// Basic Array
+
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    // Intializtion;
+    int array[10];
+    // declaring the size of array before delaring is very very important;
+
+    // Initialization and Declaration.
+    int arr[] = {1,5,6,7,4,6,7};
+    
+    // 2nd way of declaration.
+    array[0] = 1;
+    array[2] = 1;
+    array[3] = 2;
+    array[4] = 2;
+    array[5] = 3;
+    array[6] = 3;
+    array[7] = 1;
+    
+    // Access the elements and put them to the terminal.
+    cout<< arr[5];
+    cout<< array[3];
+
+    // Access all elements at once and than put them to the terminal output.
+    for(int i = 0; i<10; i++){
+        cout<< arr[i];
+        cout<< array[i];
+    }
+    // In c++ one, is allowed to create an array at the runtime, but it's not allowed in C++; Syntax :
+    int n;
+    cin>> n;
+    int A[n];
+    // How to take the input of this array?
+    for(int i = 0; i<n; i++){
+        cin>> A[i];
+    }
+    // Now put the array to the terminal.
+    for(int i = 0; i<n; i++){
+        cout << A[i];
+    }
+}
+
+
+
+Static And Dynamic Array.
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    // Intializtion;
+    int array[10];
+    // declaring the size of array before delaring is very very important;
+
+    // Initialization and Declaration.
+    int arr[] = {1,5,6,7,4,6,7};
+    
+    // 2nd way of declaration.
+    array[0] = 1;
+    array[2] = 1;
+    array[3] = 2;
+    array[4] = 2;
+    array[5] = 3;
+    array[6] = 3;
+    array[7] = 1;
+    
+    // Access the elements and put them to the terminal.
+    cout<< arr[5];
+    cout<< array[3];
+
+    // Access all elements at once and than put them to the terminal output.
+    for(int i = 0; i<10; i++){
+        cout<< arr[i];
+        cout<< array[i];
+    }
+    // In c++ one, is allowed to create an array at the runtime, but it's not allowed in C++; Syntax :
+    int n;
+    cin>> n;
+    int A[n];
+    // How to take the input of this array?
+    for(int i = 0; i<n; i++){
+        cin>> A[i];
+    }
+    // Now put the array to the terminal.
+    for(int i = 0; i<n; i++){
+        cout << A[i];
+    }
+}
+
+
+
+2. Dynamic Array and Static Array
+
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int A[10] = {1,2,3,4,5,6,7,8,9,10};
+    int *p;
+    p = new int[25];
+    p[0] = 1;
+    p[1] = 1;
+    p[2] = 1;
+    p[3] = 1;
+    p[4] = 1;
+    p[5] = 1;
+    p[6] = 1;
+    p[7] = 1;
+    p[8] = 1;
+    
+    for(int i = 0; i<10; i++){
+        cout<<A[i];
+    }
+     for(int i = 0; i<10; i++){
+        cout<<p[i];
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+3. Increase Array Size
+
+
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    // increasing array size is only possible in heap.
+    // METHOD 1.
+
+    int *p = new int[5];
+    int *q;
+    q = new int[10];
+
+    for(int i = 0; i<10; i++){
+        q[i] = p[i];
+    }
+    // METHOD 2: P HAS OLD CAR. THAN Q CAN HELP TO BUY A CAR. THAN P BRINGS THE THINGS FROM OLD CAR TO NEW CAR. AND THAN Q GOES
+     delete p;
+    p=q;
+    q = NULL;
+    
+}
+
+
+
+
+4. TDA
+
+
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    int Array[3][3];
+
+    // CREATE ARRAY INSIDE ARRAY
+    // VERY VERY IMPORTANT CONCEPT
+
+    // Procedure: First make an array in heap and than make other Arrays.
+    // METHOD 1:
+
+    int *A[3];
+    // Pointer of interger ARRAY type is being made up in stack.
+
+    /* This is how it looks like
+    |````| ->   |```|```|```|```|  
+     `````      ` ```````````````
+    |````| ->   |   |   |   |   |
+     ````
+    |````| ->   |   |   |   |   |
+     ````
+     this is how array inside array looks like it is just a small explamtaion of the concepept. and the code is preety easy
+
+    */
+   // Syntax:
+    A[0] = new int[3];
+    A[1] = new int[3];
+    A[2] = new int[3];
+
+
+    // Method 2: Main array as well as subarrays in heap
+    int **B;
+    
+
+
+    
+
+
+}
+
+
+
+
+5. Array ADT
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct array
+{
+    int *A;
+    int size;
+    int length;
+};
+
+void Display(struct array arr){
+    int i; 
+    printf("Elementers are \n");
+    for(i  = 0; i<arr.length; i++){
+        printf("%d" , arr.A[i]);
+    }
+}
+
+int main(){
+    int n, i;
+    struct array arr;
+    printf("enter array size");
+    scanf("%d", &arr.size);
+    // taken size , create array and than a point on it
+    arr.A=(int *)malloc(arr.size *sizeof(int));
+    arr.length = 0;
+    // array created in heap; size is dynamic.
+    printf("enter how many numbers");
+    scanf("%d", &n);
+    printf("enter all the elements");
+    for(i = 0 ; i<n ; i++){
+        scanf("%d", &arr.A[i]);
+    }
+    arr.length = n;   
+    Display(arr);
+}
+
+
+
+
+
+/* One more way;
+
+struct Array{
+    int A[20];
+    int size;
+    int length;
+}
+
+int main(){
+    sturct Array arr = {{2,4,5,6}// size : 20 , // length 5};
+
+    Display(arr);
+}
+
+
+*/
+
+
+
+
+
+
+
+
+Array in cpp mode
+
+
+
+
+// #include<bits/stdc++.h>
+
+// using namespace std;
+
+
+// class Array {
+//     private:
+//     // data members of the class are public.
+//         int length;
+//         int *A; 
+//         int size;
+//         void swap (int *x, int *y);
+//     public:
+//         Array(){
+//             // constructor non- parameterized
+//             size = 10; //no . operation as inside a class
+//             length = 0; 
+//             A = new int[size];
+//         }
+//         // constructor paramterized
+//         Array(int sz){
+//             size = sz; //no . operation as inside a class
+//             length = 0; 
+//             A = new int[size];
+//         }
+//         // destructor.
+//         // as we are using dynamic array so, we are suppose to delete the memoryt aloocated dynamically by the arry
+//         // Destructor:
+//         ~Array(){
+//             delete []A;
+//         }
+//     // we have to add all these functions to the class i.e. all these prototype fucttion of the class    
+//     // so, we have to remove this class closing braces now all the fuction beneath are part of the class};
+
+
+
+// // c programs are more related to the logic or proceedure
+// // c++ programs more related to designing or organizing the code
+// void Display (); // taking array as an object of type structure. the fuction is taking parmater array as an object of type sturcture. But, now it do not has to do it.
+// // iarray parameter is already a class and these fucntions are members of the class so it did not need to take array as a parameter as it can directly access it from the class, it can directly access all the members of the class
+// void Append (struct Array *arr, int x);
+// void Insert (struct Array arr, int index, int x);
+// // this function is used in all other funciton. so we can not make it globally. So, it has to be made private.
+// // void swap (int *x, int *y);
+// // its inside private block now.
+// int LinearSearch (int key);
+// int BinarySearch (int key);
+// int Get(int index);
+// void Set(int index, int x);
+// int Max(); // no parameter required as, whose max is to be calculated. The arrays class parameter is in need to be calculated
+// int Min();
+// int Sum();
+// float Avg();
+// void Reverse();
+// void Reverse2();
+// void InsertSort(int x);
+// int isSorted();
+// void Rearrange();
+// // struct Array* Merge(struct Array *arr2); no need of struct as itself its in the class
+// Array* Merge(struct Array *arr2);
+// Array* Union( struct Array *arr2);
+// Array* Intersection( struct Array *arr2);
+// Array* Difference(struct Array *arr2);
+
+// // all are members of the class
+// };
+
+// // implementing all the functions;
+
+
+// // fuction are members of the class;
+
+// void Swap(int *x, int *y){
+//     int temp; 
+//     temp =*x;
+//     *x = *y;
+//     *y = temp;
+// }
+// // for implementing the fucntion, one has to write the class name and than scope resolution operator and fuction name. Than one do no have to use the dot opernator i.e i<array.length we can directly use i<length since due to class one can directly acess the members of the class with the help of scope  resolutioon operator.
+// void Array :: Display(){
+//     int i;
+//     printf("the elements in array are: \n");
+//     for(int i = 0; i<length; i++){
+//         cout<<A[i] << endl;
+//     }
+// }
+
+// void Array::Append(int x) {
+//     // the parameter should be pass by address as, it will change the real array
+//     // now check if their is enough space or not
+//     if(length<size){
+//         A[length ++] = x;
+//         // in array a aofarr length. we can sustain element at psn len and than make length ++ the value stored will be x
+
+//     }
+// }
+
+// void Array::Insert( int index, int x){// take pareameter of type array by address as ti modify the array
+//     if(index>= 0 && index<=length){
+//         // check fro valid index.
+//         for(int i =  length; i>index ; i--){
+//             // shift the element using for loop to provide a free space for the new element. They are shifted to the right.
+//             // than insert it.
+//             //at aof i as a is inside an array object use array operator to access it. Previouse element copy at current place.
+//              A[i] = A[i-1];
+//         }
+//         A[index] = x;
+//         // write element at that index.
+//         length++;
+//     }
+// }
+
+// int Array::Delete (int index){
+//     int x= 0;
+//     // delete value will be stored in x;
+//     if(index>=0 && index <length){
+//         x= A[index];
+//         // get the value in x for array A.
+//         // shift rest values
+//         for(int i = index;i<length-1; i++){
+//             A[i] = A[i+1];
+//         }
+//         length--;
+//             return x;
+//     }
+//     return 0;
+// }
+
+// int LinearSearch(struct Array arr,int key){
+//     int i;
+//     for(int i = 0; i<arr.length; i++){
+//         if(key == arr.A[i]){
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+
+// // improving linear search 1. by transposition, 2. by move to head
+
+// int Improvinglinearsearch(struct Array *arr, int key){
+//       int i;
+//     for(int i = 0; i<arr  -> length; i++){
+//         if(key == arr -> A[i]){
+//             // transpositon
+//             Swap (&arr->A[i] , &arr -> A[i-1]);
+//             // move to head
+//             Swap (&arr -> A[i], &arr -> A[0]);
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+
+// int BinarySearch(struct Array arr , int key){
+//     int low, mid, high;
+//     low = 0;
+//     high = arr.length - 1;
+//     while(low <= high){
+//         mid = (low + high)/2;
+//         if(key == arr.A[mid]){
+//         return mid;
+//         }
+//         else if(key < arr.A[mid]){
+//             high = mid -1;
+//         }
+//         else{
+//             low = mid + 1;
+//         }
+//     }
+//     return -1;
+// }
+
+// int Get(struct Array arr ,int index){
+//     if(index >= 0 && index < arr.length){
+//         return arr.A[index];
+//     }
+//     return -1;
+// }
+
+// void Set(struct Array *arr , int index , int x){
+//     if(index >= 0 && index < arr->length){
+//         arr->A[index] = x;
+//     }
+// }
+
+// int Max(struct Array arr){
+//     int max =arr.A[0];
+//     for(int i=0; i<arr.length; i++){
+//         if(arr.A[i]>max){
+//             max=arr.A[i];
+//         }
+//     }
+//     return max;
+// }
+
+// int Min(struct Array arr){
+//     int min =arr.A[0];
+//     for(int i=0; i<arr.length; i++){
+//         if(arr.A[i]<min){
+//             min = arr.A[i];
+//         }
+//         return min;
+//     }
+// }
+
+// int Sum(struct Array arr){
+//     int sum= 0;
+//     for(int i = 0; i<arr.length; i++){
+//         sum+=arr.A[i];
+//     }
+//     return sum;
+// }
+
+// float Avg(struct Array arr){
+//     return (float)Sum(arr)/arr.length;
+// }
+
+// void Reverse(struct Array *arr){
+//     // 1. method By taking an auxilary array and copying all the elments to it
+//     int *B;
+//     int i,j;
+
+//     B=(int*)malloc(arr->length*sizeof(int));
+//     //here we have to create an array of B in heap of the same size of the array A. So, here we are going to use the arr-> length function.
+//     // copy elements from right hand side to array b
+//     for(i = arr-> length-1,j=0; i>=0; i--,j++){
+//         B [j] = arr->A[i];
+//     }
+//     // here we have made an auxilary array B and than 
+//     // we have reversed copied the element from left hand
+//     // side to array B. Before hand we have created an array in
+//     // heap. After reverse copying the element in array b
+//     // we again have again copied back those elements to array A. 
+//     // and we got the array reversed
+//     for(int i = 0; i<arr->length; i++){
+//         arr->A[i] = B[i];
+//     }
+// }
+
+// void Reverse2(struct Array *arr){
+//     int i, j;
+//     for(i=0, j=arr->length-1; i<j; i++, j--){
+//         Swap(&arr->A[i] , &arr->A[j]);
+//     }
+// }
+
+
+// // left shift and left rotation, right shift and right rotation. 4 function left as student excercise.
+
+// // inserting an element in sorted position
+
+// void InsertSort(struct Array *arr, int x){
+//     int i = arr->length-1;
+//     if(arr-> length== arr -> size){
+//         return;
+//     }
+//     // first one has to check that if the length and size ot the array are same to same than, we can not add an element to it
+//     // i am checking form back in this loop and whenever, I have go a certain value of x and 
+//     // till that value of x is great than A[i] and greater than 0, i will right shift an element form its position to
+//     // a +1 position.
+//     // and when the loop has terminated, there will be one extra value of i, so, i--  
+//     while(i>=0 && arr->A[i]>x){
+//         arr->A[i+1] = arr->A[i];
+//         i--;
+//     }
+//     // coming out of loop, store element at aofi+1, position.
+//     arr-> A[i+1] = x;
+//     arr->length ++;
+// }
+
+// // check if array is sorted or not
+
+// int isSorted(struct Array arr){
+
+//     for(int i=0; i<arr.length-1; i++){
+//         if(arr.A[i] >arr.A[i+1]){
+//             return 0;
+//         }
+//     }
+// return 1;
+// }
+
+// void REarrange(struct Array *arr){
+//     int i, j;
+//     i = 0;
+//     j = arr->length-1;
+//     while(i<j){
+//         while(arr->A[i]<0) i++;
+//         while(arr->A[j] >= 0) j--;
+//         if(i<j) Swap(&arr -> A[i] , &arr-> A[j]);
+//     }
+// }
+
+// struct Array* Merge(struct Array *arr1,struct Array *arr2)
+// {
+//  int i,j,k;
+//  i=j=k=0;
+ 
+//  struct Array *arr3=(struct Array *)malloc(sizeof(struct Array));
+ 
+//  while(i<arr1->length && j<arr2->length){  
+//     if(arr1->A[i]<arr2->A[j])
+//         arr3->A[k++]=arr1->A[i++];
+//     else
+//         arr3->A[k++]=arr2->A[j++];
+//     }
+//     for(;i<arr1->length;i++)
+//         arr3->A[k++]=arr1->A[i];
+
+//     for(;j<arr2->length;j++)
+//         arr3->A[k++]=arr2->A[j];
+
+//  arr3->length=arr1->length+arr2->length;
+//  arr3->size=10;
+ 
+//  return arr3;
+// }
+
+// struct Array* Union(struct Array *arr1,struct Array *arr2)
+// {
+//  int i,j,k;
+//  i=j=k=0;
+ 
+//  struct Array *arr3=(struct Array *)malloc(sizeof(struct Array));
+ 
+//  while(i<arr1->length && j<arr2->length){  
+//     if(arr1->A[i]<arr2->A[j]) // if array 1 el is same
+//         arr3->A[k++]=arr1->A[i++]; // if array 2 el is same
+//     else if (arr2-> A[j < arr1->A[i]]) // if both are equall copy any 1 el and increment i and j
+//         arr3->A[k++]=arr2->A[j++];
+//     else
+//     arr3->A[k++] = arr1->A[i++];
+//     j++;
+//     }
+//     for(;i<arr1->length;i++)
+//         arr3->A[k++]=arr1->A[i];
+
+//     for(;j<arr2->length;j++)
+//         arr3->A[k++]=arr2->A[j];
+
+//  arr3->length=k; // the length should not be sum of array1 and array2 elements it should be what ever the value of k is going to be.
+//  arr3->size=10;
+ 
+//  return arr3;
+// }
+
+// struct Array* Intersection(struct Array *arr1,struct Array *arr2)
+// {
+//  int i,j,k;
+//  i=j=k=0;
+//  // copy element if only they are equall
+//  struct Array *arr3=(struct Array *)malloc(sizeof(struct Array));
+ 
+//  while(i<arr1->length && j<arr2->length){  
+//     if(arr1->A[i]<arr2->A[j]) // first array element is smaller
+//        i++; 
+//     else if (arr2-> A[j] < arr1->A[i]) // second array element is smaller
+//     j++;
+//     else if ( arr1 ->A[i] == arr2-> A[j]){
+//     arr3->A[k++] = arr1->A[i++];
+//     j++;
+//     }
+
+//     // both are equall copy them.
+
+//     // the two for loop copies one array element to other but we have not to do it
+// }
+//  arr3->length=k; // the length should not be sum of array1 and array2 elements it should be what ever the value of k is going to be.
+//  arr3->size=10;
+ 
+//  return arr3;
+// }
+
+// struct Array* Difference(struct Array *arr1,struct Array *arr2)
+// {
+//  int i,j,k;
+//  i=j=k=0;
+//  // copy element only of 1st array
+//  struct Array *arr3=(struct Array *)malloc(sizeof(struct Array));
+ 
+//  while(i<arr1->length && j<arr2->length){  
+//     if(arr1->A[i]<arr2->A[j])
+//         arr3->A[k++]=arr1->A[i++]; // copy element 
+//     else if(arr2 ->A[j] < arr1 ->A[i])
+//         j++;
+//     else {
+//         i++;
+//         j++;
+//     }
+// }
+//     for(;i<arr1->length;i++)
+//         arr3->A[k++]=arr1->A[i];
+// // do not copy element from array 2.
+
+//  arr3->length=k;
+//  arr3->size=10;
+ 
+//  return arr3;
+// }
+
+// // set membership. search linear search or binary search.
+
+// // unsorted array I have to implement those function.
+// int main()
+// {
+//     struct Array arr1;
+//     int ch;
+//     int x,index;
+ 
+//     printf("Enter Size of Array");
+//     scanf("%d",&arr1.size);
+//     arr1.A=(int *)malloc(arr1.size*sizeof(int));
+//     arr1.length=0;
+//     do
+//     {
+//         printf("\n\nMenu\n");
+//         printf("1. Insert\n");
+//         printf("2. Delete\n");
+//         printf("3. Search\n");
+//         printf("4. Sum\n");
+//         printf("5. Display\n");
+//         printf("6.Exit\n");
+ 
+//         printf("enter you choice ");
+//         scanf("%d",&ch);
+ 
+//         switch(ch)
+//         {
+//             case 1: printf("Enter an element and index ");
+//                 scanf("%d%d",&x,&index);
+//                 Insert(&arr1,index,x);
+//                 break;
+//             case 2: printf("Enter index ");
+//                 scanf("%d",&index);
+//                 x=Delete(&arr1,index);
+//                 printf("Deleted Element is %d\n",x);
+//                  break;
+//             case 3:printf("Enter element to search ");
+//                 scanf("%d",&x);
+//             index=LinearSearch(&arr1,x);
+//             printf("Element index %d",index);
+//                 break;
+//             case 4:printf("Sum is %d\n",Sum(arr1));
+//                 break;
+//             case 5:Display(arr1);
+ 
+//             }
+//         }while(ch<6);
+//     return 0;
+// }
+
+
+
+
+
+
+
+
+#include <iostream>
+
+using namespace std;
+
+class Array{
+    private:
+        int *A;
+        int size;
+        int length;
+        void swap(int *x,int *y);
+ 
+    public:
+        Array(){
+            size=10;
+            length=0;
+            A=new int[size];
+        }
+        Array(int sz) {
+            size=sz;
+            length=0;
+            A=new int[size];
+        }
+        ~Array(){
+            delete []A;
+        }
+    void Display();
+    void Append(int x);
+    void Insert(int index,int x);
+    int Delete(int index);
+    int LinearSearch(int key);
+    int BinarySearch(int key);
+    int Get(int index);
+    void Set(int index,int x);
+    int Max();
+    int Min();
+    int Sum();
+    float Avg();
+    void Reverse();
+    void Reverse2();
+    void InsertSort(int x);
+    int isSorted();
+    void Rearrange();
+    Array* Merge(Array arr2);
+    Array* Union(Array arr2);
+    Array* Diff(Array arr2);
+    Array* Inter(Array arr2);
+};
+void Array::Display(){
+    int i;
+    cout<<"\nElements are\n";
+    for(i=0;i<length;i++)
+    cout<<A[i]<<" ";
+}
+void Array::Append(int x){
+    if(length<size)
+    A[length++]=x;
+ }
+void Array::Insert(int index,int x){
+    int i;
+    if(index>=0 && index <=length){
+    for(i=length;i>index;i--)
+    A[i]=A[i-1];
+    A[index]=x;
+    length++;
+    }}
+int Array::Delete(int index)
+{
+ int x=0;
+ int i;
+ 
+ if(index>=0 && index<length)
+ {
+ x=A[index];
+ for(i=index;i<length-1;i++)
+ A[i]=A[i+1];
+ length--;
+ return x;
+ }
+ 
+ return 0;
+}
+void Array::swap(int *x,int *y)
+{
+ int temp;
+ temp=*x;
+ *x=*y;
+ *y=temp;
+}
+int Array::LinearSearch(int key)
+{
+ int i;
+ for(i=0;i<length;i++)
+ {
+ if(key==A[i])
+ {
+ swap(&A[i],&A[0]);
+ return i;
+ }
+ }
+ return -1;
+}
+int Array::BinarySearch(int key)
+{
+ int l,mid,h;
+ l=0;
+ h=length-1;
+ 
+ while(l<=h)
+ {
+ mid=(l+h)/2;
+ if(key==A[mid])
+ return mid;
+ else if(key<A[mid])
+ h=mid-1;
+ else
+ l=mid+1;
+ }
+ return -1;
+}
+int Array::Get(int index)
+{
+ if(index>=0 && index<length)
+ return A[index];
+ return -1;
+}
+void Array::Set(int index,int x)
+{
+ if(index>=0 && index< length)
+ A[index]=x;
+}
+int Array::Max()
+{
+ int max=A[0];
+ int i;
+ for(i=1;i<length;i++)
+ {
+ if(A[i]>max)
+ max=A[i];
+ }
+ return max;
+}
+int Array::Min()
+{
+ int min=A[0];
+ int i;
+ for(i=1;i<length;i++)
+ {
+ if(A[i]<min)
+ min=A[i];
+ }
+ return min;
+}
+int Array::Sum()
+{
+ int s=0;
+ int i;
+ for(i=0;i<length;i++)
+ s+=A[i];
+ 
+ return s;
+}
+float Array::Avg()
+{
+ return (float)Sum()/length;
+}
+void Array::Reverse()
+{
+ int *B;
+ int i,j;
+ 
+ B=(int *)malloc(length*sizeof(int));
+ for(i=length-1,j=0;i>=0;i--,j++)
+ B[j]=A[i];
+ for(i=0;i<length;i++)
+ A[i]=B[i];
+ 
+}
+void Array::Reverse2()
+{
+ int i,j;
+ for(i=0,j= length-1;i<j;i++,j--)
+ {
+ swap(& A[i],& A[j]);
+ }
+}
+void Array::InsertSort(int x)
+{
+ int i= length-1;
+ if( length== size)
+ return;
+ while(i>=0 && A[i]>x)
+ {
+ A[i+1]= A[i];
+ i--;
+ }
+ A[i+1]=x;
+ length++;
+ 
+}
+int Array::isSorted()
+{
+ int i;
+ for(i=0;i<length-1;i++)
+ {
+ if(A[i]>A[i+1])
+ return 0;
+ }
+ return 1;
+}
+void Array::Rearrange()
+{
+ int i,j;
+ i=0;
+ j= length-1;
+ 
+ while(i<j)
+ {
+ while( A[i]<0)i++;
+ while( A[j]>=0)j--;
+ if(i<j)swap(& A[i],& A[j]);
+ }
+ 
+}
+Array* Array::Merge(Array arr2)
+{
+ int i,j,k;
+ i=j=k=0;
+ 
+ Array *arr3=new Array(length+arr2.length);
+ 
+ while(i<length && j<arr2.length)
+ {
+ if(A[i]<arr2.A[j])
+ arr3->A[k++]=A[i++];
+ else
+ arr3->A[k++]=arr2.A[j++];
+ }
+ for(;i<length;i++)
+ arr3->A[k++]=A[i];
+ for(;j<arr2.length;j++)
+ arr3->A[k++]=arr2.A[j];
+ arr3->length=length+arr2.length;
+ 
+ return arr3;
+}
+Array* Array::Union(Array arr2)
+{
+ int i,j,k;
+ i=j=k=0;
+ 
+ Array *arr3=new Array(length+arr2.length);
+ 
+ while(i<length && j<arr2.length)
+ {
+ if(A[i]<arr2.A[j])
+ arr3->A[k++]=A[i++];
+ else if(arr2.A[j]<A[i])
+ arr3->A[k++]=arr2.A[j++];
+ else
+ {
+ arr3->A[k++]=A[i++];
+ j++;
+ }
+ }
+ for(;i<length;i++)
+ arr3->A[k++]=A[i];
+ for(;j<arr2.length;j++)
+ arr3->A[k++]=arr2.A[j];
+ 
+ arr3->length=k;
+ 
+ return arr3;
+}
+Array* Array::Inter(Array arr2)
+{
+ int i,j,k;
+ i=j=k=0;
+ 
+ Array *arr3=new Array(length+arr2.length);
+ 
+ while(i<length && j<arr2.length)
+ {
+ if(A[i]<arr2.A[j])
+ i++;
+ else if(arr2.A[j]<A[i])
+ j++;
+ else if(A[i]==arr2.A[j])
+ {
+ arr3->A[k++]=A[i++];
+ j++;
+ }
+ }
+ 
+ arr3->length=k;
+ 
+ return arr3;
+}
+Array* Array::Diff(Array arr2)
+{
+ int i,j,k;
+ i=j=k=0;
+ 
+ Array *arr3=new Array(length+arr2.length);
+ 
+ while(i<length && j<arr2.length)
+ {
+ if(A[i]<arr2.A[j])
+ arr3->A[k++]=A[i++];
+ else if(arr2.A[j]<A[i])
+ j++;
+ else
+ {
+ i++;
+ j++;
+ }
+ }
+ for(;i<length;i++)
+ arr3->A[k++]=A[i];
+ 
+ 
+ arr3->length=k;
+ 
+ return arr3;
+}
+int main()
+{
+ Array *arr1;
+ int ch,sz;
+ int x,index;
+ 
+ cout<<"Enter Size of Array";
+ scanf("%d",&sz);
+ arr1=new Array(sz);
+ 
+ do
+ {
+ cout<<"\n\nMenu\n";
+ cout<<"1. Insert\n";
+ cout<<"2. Delete\n";
+ cout<<"3. Search\n";
+ cout<<"4. Sum\n";
+ cout<<"5. Display\n";
+ cout<<"6.Exit\n";
+ 
+ cout<<"enter you choice ";
+ cin>>ch;
+ 
+ switch(ch)
+ {
+ case 1: cout<<"Enter an element and index ";
+ cin>>x>>index;
+ arr1->Insert(index,x);
+ break;
+ case 2: cout<<"Enter index ";
+ cin>>index;
+ x=arr1->Delete(index);
+ cout<<"Deleted Element is"<<x;
+ break;
+ case 3:cout<<"Enter element to search ";
+ cin>>x;
+ index=arr1->LinearSearch(x);
+ cout<<"Element index "<<index;
+ break;
+ case 4:cout<<"Sum is "<<arr1->Sum();
+ break;
+ case 5:arr1->Display();
+ 
+ }
+ }while(ch<6);
+ return 0;
+
+
+
+
+
+
+MIAN ARRAY 
+
+
+
+
+
+
+
+
+
+#include<bits/stdc++.h>
+
+/*  
+The statement #include<iostream> in C++ simply includes “iostream” header file in your program so 
+that you can use all the functions, classes, etc.
+from iostream to your program.
+
+For example, “cout” is an object of class which is defined in iostream. 
+In order to use that you are telling the compiler by this statement to include this file.
+
+This is exactly same as #include<stdio.h> statement in C Language.
+
+And yeah, #include is called pre-processor directive. 
+That means whatever mentioned with #include will be processed before the execution of the program 
+starts.
+There are many other preprocessor directive such as #define, typedef, etc. 
+Which works exactly same as C Language (If you have learnt C language before C++).
+*/
+
+using namespace std;
+
+/*
+“using namespace std” means we use the namespace named std.
+ “std” is an abbreviation for standard. So that means we use all the things with in “std” namespace. 
+ If we don't want to use this line of code,
+ we can use the things in this namespace like this. std::cout, std::endl.
+*/
+struct Array{
+    int A[10];
+    int size;
+    int length;
+};
+
+/* 
+structure in an c++ program is the function that helps to store different data types and variable.
+it helps to pass that array as a structure and than one can access all the members of it 
+using membership operator or (. , -> operator)
+*/
+
+/*
+swap function needs to variables to perfrom the task. 
+Here it needs variable of type pointer. WHy?
+There is going to be a change in main parameters.
+
+x and y are formal parameters means they are local parameter. When the program run, they are created and the 
+vlaue of main parameters are copied to the formal parmaeters once the stack frame or activation record of the
+fuction swap is created. 
+
+The changes made in formal parameters will be refelected to the main parameters as the parameters are passed by address.
+*/
+void Swap(int *x, int *y){
+    int temp; 
+    temp =*x;
+    *x = *y;
+    *y = temp;
+}
+
+/*
+Here, in this function, the array created in main function will be displayed to the terminal.
+it takes array as pareameter.
+So, it can access the array length and array itself.
+
+Dot (.) operatoer helps to access the data of the structure pareamter.
+
+here the parameter is object array of type structure
+*/
+void Display(struct Array arr){
+    int i;
+    printf("the elements in array are: \n");
+    for(int i = 0; i<arr.length; i++){
+        cout<<arr.A[i] << endl;
+    }
+}
+
+
+/*
+Append function takes array as parameter i.e. passed by address
+Since it makes changes in the array.
+First one will check wether their is space in the array.
+if(arr->length < arr-< size)
+the membership operator used is arrow -> why?
+since the array is passed as address
+
+so, if the length is less than the size means that array has space to add up a character to it.
+
+than in the array arr one will do length ++. and at that position one will inseter x.
+
+*/
+
+void Append(struct Array *arr , int x){
+    // the parameter should be pass by address as, it will change the real array
+    // now check if their is enough space or not
+    if(arr-> length<arr->size){
+        arr -> A[arr-> length ++] = x;
+        // in array a aofarr length. we can sustain element at psn len and than make length ++ the value stored will be x
+
+    }
+}
+/*
+insert function takes array as parameter, index and an element.
+at certain poistion or called index, one has to add an element.
+
+so first one will check that elemnts inserted should be at index >= 0 and ,<= length of the array
+now we will create a loop which will start form ending of the loop that is from length and greater than
+the index. Why?
+One has to right shift the elments from right and than create a free space.
+now aofi = aofi-1. statement will work like it
+the element present at aofi position will be shfted to right by the statement aofi-1 
+
+Finally when the loop gets over. A gap is created at the index specified and than, at than position after leaving the loop
+the element is introduced.
+Than length of elements is increased.
+*/
+void Insert(struct Array *arr, int index, int x){// take pareameter of type array by address as ti modify the array
+    if(index>= 0 && index<=arr-> length){
+        // check fro valid index.
+        for(int i = arr-> length; i>index ; i--){
+            // shift the element using for loop to provide a free space for the new element. They are shifted to the right.
+            // than insert it.
+            //at aof i as a is inside an array object use array operator to access it. Previouse element copy at current place.
+            arr -> A[i] = arr -> A[i-1];
+        }
+        arr -> A[index] = x;
+        // write element at that index.
+        arr -> length++;
+    }
+}
+
+/*
+delete function takes array as a paremeter and the index. where element of array has to be deleted
+first one will take a variable x and than one will check the condition.
+wether the given index is valid or not valid i.e. it should be >=0 and <= length.
+now we will take the element at that index in the variable x.
+than we will create a loop that will run form the startind point of given index to len -1 and left
+shift all the elements at that point.
+After the proccess is done by the statement. aofi = aofi+1
+*/
+int Delete (struct Array *arr, int index){
+    int x= 0;
+    // delete value will be stored in x;
+    if(index>=0 && index <arr->length){
+        x= arr-> A[index];
+        // get the value in x for array A.
+        // shift rest values
+        for(int i = index;i<arr->length-1; i++){
+            arr->A[i] = arr->A[i+1];
+        }
+        arr->length--;
+            return x;
+    }
+    return 0;
+}
+
+/*
+linear search takes the array and a key as parameter.
+the key specifies the element and the return type is going to be the position.
+It will tell wether the element is present there return i i.e. index else return -1.
+*/
+int LinearSearch(struct Array arr,int key){
+    int i;
+    for(int i = 0; i<arr.length; i++){
+        if(key == arr.A[i]){
+            return i;
+        }
+    }
+    return -1;
+}
+
+// improving linear search 1. by transposition, 2. by move to head
+
+/*
+their are ways by which linear search can be improved from which no 1 is that one 
+can do transopsition.
+
+1.Transpostion: takes array and key as parameter.
+if the key found is equall to the array element
+than swap the element found by it's previous element.
+
+2. Move to head.
+just swap the element from the element present at head.
+*/
+int Improvinglinearsearch(struct Array *arr, int key){
+      int i;
+    for(int i = 0; i<arr  -> length; i++){
+        if(key == arr -> A[i]){
+            // transpositon
+            Swap (&arr->A[i] , &arr -> A[i-1]);
+            // move to head
+            Swap (&arr -> A[i], &arr -> A[0]);
+            return i;
+        }
+    }
+    return -1;
+}
+
+/*
+binary search takes lesser time then the linear serch and its very effective.
+T.C. Linear Search: On
+T.C. Binary Search: Ologn
+In binary search one needs three local variable right left and mid.
+left = 0;
+right = arr. length -1;
+first one specifies the value of the right and left left with the 0 that is starting of array list
+right with length -1; that is ending of the list.
+
+while the right is less than equall than left.
+firts one will calculated mid as (r+l/2). 
+if the key matches the mid that the elements is present at aofmid.
+than return mid.
+
+if key is small than mid.
+
+present in right
+
+one has to do right = mid -1;
+
+else if the element is present at left from the mid. Than the right = mid -1.
+i.e. element is in left quadrunt. While loop will now go on making to mid -1. i.e. left
+
+if key is bigger than mid.
+
+present in left
+
+one has to do left = mid +1;
+
+
+else  the element is present in the right quadrunt than one will do left = mid +1.
+i.e the element is present in the right quadrunt.
+*/
+
+
+int BinarySearch(struct Array arr , int key){
+    int low, mid, high;
+    low = 0;
+    high = arr.length - 1;
+    while(low <= high){
+        mid = (low + high)/2;
+        if(key == arr.A[mid]){
+        return mid;
+        }
+        else if(key < arr.A[mid]){
+            high = mid -1;
+        }
+        else{
+            low = mid + 1;
+        }
+    }
+    return -1;
+}
+/*
+Get function simply return the element at certain index.
+So, it will take array and index as parametrs of arguments.
+First one has to check the condition and when its done, one has
+to just return the element at that index.
+or not found return -1.
+arr.A[index] to use arr one has to use . operator and than  return A
+index element.
+*/
+int Get(struct Array arr ,int index){
+    if(index >= 0 && index < arr.length){
+        return arr.A[index];
+    }
+    return -1;
+}
+/*
+set fucntion takes array object as type of structure and index and an elements, where
+the elemenst has to be inserted.
+
+array is being changed so, the stucture array is taken by address.
+if the the condition is matched that is if the index is>= 0. and <= length.
+than at that position one will insert an element x.
+arr -> A[index] = x.
+*/
+
+void Set(struct Array *arr , int index , int x){
+    if(index >= 0 && index < arr->length){
+        arr->A[index] = x;
+    }
+}
+/*
+Max function takes object array of type structure as a parameter
+first we will intialize first element as the max of all the element
+than one will run a for loop. if any element present at certain Index i.e. arr.A[i]
+and is bigger than max.
+than put that in max variable if such an element is found until the whole loop ends
+and one does'nt get the biggest or largest element
+than return max.
+*/
+int Max(struct Array arr){
+    int max =arr.A[0];
+    for(int i=0; i<arr.length; i++){
+        if(arr.A[i]>max){
+            max=arr.A[i];
+        }
+    }
+    return max;
+}
+// proceedre same as max fuction
+int Min(struct Array arr){
+    int min =arr.A[0];
+    for(int i=0; i<arr.length; i++){
+        if(arr.A[i]<min){
+            min = arr.A[i];
+        }
+        return min;
+    }
+}
+/*
+// Sum fuction takes array as a prameter of structure type 
+first one will make sum as 0.
+and than one will ran a loop and sum +=arr.A[i].
+return sum.
+*/
+
+int Sum(struct Array arr){
+    int sum= 0;
+    for(int i = 0; i<arr.length; i++){
+        sum+=arr.A[i];
+    }
+    return sum;
+}
+// same as sum return (float)Sum(arr)/arr.length;
+float Avg(struct Array arr){
+    return (float)Sum(arr)/arr.length;
+}
+/*
+There are two methods to reverse an array:
+1. By taking an auxiliary array in heap and copying all the elements to it.
+Firsty the fuction takes array as parameter.
+than we take a pointer b and ij variables who will help to iterate through both the 
+arrays.
+now one will allocate memory for that b in heap.
+B=(int *)malloc(arr->length*sizeof(int)).
+this statement allocates memory in heap.
+now in loop i will start form last and j will start from 0, i > 0. Than i decrements
+and j increments.
+In B[j] , arr-> A[i] will be pasted.
+
+One will reverse copy the elements form right hand.
+
+now we, will again run a loop and back copy elements from ai to bi.
+
+*/
+void Reverse(struct Array *arr){
+    // 1. method By taking an auxilary array and copying all the elments to it
+    int *B;
+    int i,j;
+
+    B=(int*)malloc(arr->length*sizeof(int));
+    //here we have to create an array of B in heap of the same size of the array A. So, here we are going to use the arr-> length function.
+    // copy elements from right hand side to array b
+    for(i = arr-> length-1,j=0; i>=0; i--,j++){
+        B [j] = arr->A[i];
+    }
+    // here we have made an auxilary array B and than 
+    // we have reversed copied the element from left hand
+    // side to array B. Before hand we have created an array in
+    // heap. After reverse copying the element in array b
+    // we again have again copied back those elements to array A. 
+    // and we got the array reversed
+    for(int i = 0; i<arr->length; i++){
+        arr->A[i] = B[i];
+    }
+}
+/*
+just one has to swap elment present at aofi index to aofj index
+i starts from 0. j starts form l-1 and i<j i inc. and j dec.
+than a at i and j at n-1. swap both.
+*/
+void Reverse2(struct Array *arr){
+    int i, j;
+    for(i=0, j=arr->length-1; i<j; i++, j--){
+        Swap(&arr->A[i] , &arr->A[j]);
+    }
+}
+
+
+// left shift and left rotation, right shift and right rotation. 4 function left as student excercise.
+
+// inserting an element in sorted position
+
+void InsertSort(struct Array *arr, int x){
+    int i = arr->length-1;
+    if(arr-> length== arr -> size){
+        return;
+    }
+    // first one has to check that if the length and size ot the array are same to same than, we can not add an element to it
+    // i am checking form back in this loop and whenever, I have go a certain value of x and 
+    // till that value of x is great than A[i] and greater than 0, i will right shift an element form its position to
+    // a +1 position.
+    // and when the loop has terminated, there will be one extra value of i, so, i--  
+    while(i>=0 && arr->A[i]>x){
+        arr->A[i+1] = arr->A[i];
+        i--;
+    }
+    // coming out of loop, store element at aofi+1, position.
+    arr-> A[i+1] = x;
+    arr->length ++;
+}
+
+// check if array is sorted or not
+
+int isSorted(struct Array arr){
+
+    for(int i=0; i<arr.length-1; i++){
+        if(arr.A[i] >arr.A[i+1]){
+            return 0;
+        }
+    }
+return 1;
+}
+
+void REarrange(struct Array *arr){
+    int i, j;
+    i = 0;
+    j = arr->length-1;
+    while(i<j){
+        while(arr->A[i]<0) i++;
+        while(arr->A[j] >= 0) j--;
+        if(i<j) Swap(&arr -> A[i] , &arr-> A[j]);
+    }
+}
+
+struct Array* Merge(struct Array *arr1,struct Array *arr2)
+{
+ int i,j,k;
+ i=j=k=0;
+ 
+ struct Array *arr3=(struct Array *)malloc(sizeof(struct Array));
+ 
+ while(i<arr1->length && j<arr2->length){  
+    if(arr1->A[i]<arr2->A[j])
+        arr3->A[k++]=arr1->A[i++];
+    else
+        arr3->A[k++]=arr2->A[j++];
+    }
+    for(;i<arr1->length;i++)
+        arr3->A[k++]=arr1->A[i];
+
+    for(;j<arr2->length;j++)
+        arr3->A[k++]=arr2->A[j];
+
+ arr3->length=arr1->length+arr2->length;
+ arr3->size=10;
+ 
+ return arr3;
+}
+
+struct Array* Union(struct Array *arr1,struct Array *arr2)
+{
+ int i,j,k;
+ i=j=k=0;
+ 
+ struct Array *arr3=(struct Array *)malloc(sizeof(struct Array));
+ 
+ while(i<arr1->length && j<arr2->length){  
+    if(arr1->A[i]<arr2->A[j]) // if array 1 el is same
+        arr3->A[k++]=arr1->A[i++]; // if array 2 el is same
+    else if (arr2-> A[j < arr1->A[i]]) // if both are equall copy any 1 el and increment i and j
+        arr3->A[k++]=arr2->A[j++];
+    else
+    arr3->A[k++] = arr1->A[i++];
+    j++;
+    }
+    for(;i<arr1->length;i++)
+        arr3->A[k++]=arr1->A[i];
+
+    for(;j<arr2->length;j++)
+        arr3->A[k++]=arr2->A[j];
+
+ arr3->length=k; // the length should not be sum of array1 and array2 elements it should be what ever the value of k is going to be.
+ arr3->size=10;
+ 
+ return arr3;
+}
+
+struct Array* Intersection(struct Array *arr1,struct Array *arr2)
+{
+ int i,j,k;
+ i=j=k=0;
+ // copy element if only they are equall
+ struct Array *arr3=(struct Array *)malloc(sizeof(struct Array));
+ 
+ while(i<arr1->length && j<arr2->length){  
+    if(arr1->A[i]<arr2->A[j]) // first array element is smaller
+       i++; 
+    else if (arr2-> A[j] < arr1->A[i]) // second array element is smaller
+    j++;
+    else if ( arr1 ->A[i] == arr2-> A[j]){
+    arr3->A[k++] = arr1->A[i++];
+    j++;
+    }
+
+    // both are equall copy them.
+
+    // the two for loop copies one array element to other but we have not to do it
+}
+ arr3->length=k; // the length should not be sum of array1 and array2 elements it should be what ever the value of k is going to be.
+ arr3->size=10;
+ 
+ return arr3;
+}
+
+struct Array* Difference(struct Array *arr1,struct Array *arr2)
+{
+ int i,j,k;
+ i=j=k=0;
+ // copy element only of 1st array
+ struct Array *arr3=(struct Array *)malloc(sizeof(struct Array));
+ 
+ while(i<arr1->length && j<arr2->length){  
+    if(arr1->A[i]<arr2->A[j])
+        arr3->A[k++]=arr1->A[i++]; // copy element 
+    else if(arr2 ->A[j] < arr1 ->A[i])
+        j++;
+    else {
+        i++;
+        j++;
+    }
+}
+    for(;i<arr1->length;i++)
+        arr3->A[k++]=arr1->A[i];
+// do not copy element from array 2.
+
+ arr3->length=k;
+ arr3->size=10;
+ 
+ return arr3;
+}
+
+// set membership. search linear search or binary search.
+
+// unsorted array I have to implement those function.
+int main(){
+
+    // union means to have on duplicates
+    // Intersection means to copy element to c if only both the elements are equall in array a and b.
+
+    // struct Array arr = {{10,-13,15,-16,7},10,5};
+
+    // merging 2 arrays:
+
+    struct Array arr1= {{2,6,10,15,25}, 10, 5};
+    struct Array arr2= {{3,4,6,15,20},10,5};
+    struct Array *arr3;
+
+    // arr3=Merge(&arr1, &arr2);
+
+    //arr3=Intersection(&arr1, &arr2);
+     arr3=Difference(&arr1, &arr2);
+
+    //printf("%d \n", Delete(&arr,2));
+    // Insert(&arr,2,10);
+    // Append(&arr,10);
+    // printf("%d\n" , LinearSearch(arr,2));
+    // printf("%d\n", BinarySearch(arr,2));
+
+    //printf("%d\n" , Get (arr,2));
+    //Set(&arr,0,15);
+
+    // cout<<"max element is " << Max(arr) << endl ;
+    // cout<<"min element is " << Min(arr) << endl ;
+
+    // cout<<"total sum of element is:" << Sum(arr) << endl;
+    // cout<<"The average of elements of Array are:" << Avg(arr) << endl;
+
+    // Reverse(&arr);
+    // Reverse2(&arr);
+    // InsertSort(&arr, 14);
+
+    // cout<<isSorted(arr) << endl;
+    // 1 means that the array is sorted.
+    // 0 means that the array is not sorted.
+
+    //REarrange(&arr);
+
+    Display(*arr3);
+    return 0;
+}
+
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    // Intializtion;
+    int array[10];
+    // declaring the size of array before delaring is very very important;
+
+    // Initialization and Declaration.
+    int arr[] = {1,5,6,7,4,6,7};
+    
+    // 2nd way of declaration.
+    array[0] = 1;
+    array[2] = 1;
+    array[3] = 2;
+    array[4] = 2;
+    array[5] = 3;
+    array[6] = 3;
+    array[7] = 1;
+    
+    // Access the elements and put them to the terminal.
+    cout<< arr[5];
+    cout<< array[3];
+
+    // Access all elements at once and than put them to the terminal output.
+    for(int i = 0; i<10; i++){
+        cout<< arr[i];
+        cout<< array[i];
+    }
+    // In c++ one, is allowed to create an array at the runtime, but it's not allowed in C++; Syntax :
+    int n;
+    cin>> n;
+    int A[n];
+    // How to take the input of this array?
+    for(int i = 0; i<n; i++){
+        cin>> A[i];
+    }
+    // Now put the array to the terminal.
+    for(int i = 0; i<n; i++){
+        cout << A[i];
+    }
+}
+
+
+
+
+
+
+Menu Driven Program in cpp
+
+
+
+
+#include <stdio.h>
+#include<stdlib.h>
+struct Array
+{
+    int *A;
+    int size;
+    int length;
+};
+void Display(struct Array arr)
+{
+    int i;
+    printf("\nElements are\n");
+    for(i=0;i<arr.length;i++)
+        printf("%d ",arr.A[i]);
+}
+void Append(struct Array *arr,int x)
+{
+    if(arr->length<arr->size)
+        arr->A[arr->length++]=x;
+ 
+}
+void Insert(struct Array *arr,int index,int x)
+{
+    int i;
+    if(index>=0 && index <=arr->length)
+    {
+        for(i=arr->length;i>index;i--)
+            arr->A[i]=arr->A[i-1];
+
+        arr->A[index]=x;
+        arr->length++;
+ 
+    }
+}
+int Delete(struct Array *arr,int index)
+{
+    int x=0;
+    int i;
+ 
+    if(index>=0 && index<arr->length)
+    {
+        x=arr->A[index];
+        for(i=index;i<arr->length-1;i++)
+            arr->A[i]=arr->A[i+1];
+
+        arr->length--;
+    return x;
+ }
+ 
+ return 0;
+}
+void swap(int *x,int *y)
+{
+    int temp;
+    temp=*x;
+    *x=*y;
+    *y=temp;
+}
+int LinearSearch(struct Array *arr,int key)
+{
+    int i;
+    for(i=0;i<arr->length;i++)
+        {
+        if(key==arr->A[i])
+        {
+            swap(&arr->A[i],&arr->A[0]);
+            return i;
+        }
+    }
+    return -1;
+}
+int BinarySearch(struct Array arr,int key)
+{
+    int l,mid,h;
+    l=0;
+    h=arr.length-1;
+ 
+    while(l<=h)
+    {
+        mid=(l+h)/2;
+
+        if(key==arr.A[mid])
+            return mid;
+        else if(key<arr.A[mid])
+            h=mid-1;
+        else
+            l=mid+1;
+        }
+    return -1;
+}
+int RBinSearch(int a[],int l,int h,int key)
+{
+    int mid;
+ 
+    if(l<=h)
+    {
+        mid=(l+h)/2;
+        if(key==a[mid])
+            return mid;
+        else if(key<a[mid])
+            return RBinSearch(a,l,mid-1,key);
+        else
+            return RBinSearch(a,mid+1,h,key);
+    }
+    return -1;
+}
+int Get(struct Array arr,int index)
+{
+    if(index>=0 && index<arr.length)
+        return arr.A[index];
+
+     return -1;
+}
+void Set(struct Array *arr,int index,int x)
+{
+    if(index>=0 && index<arr->length)
+        arr->A[index]=x;
+}
+int Max(struct Array arr)
+{
+    int max=arr.A[0];
+    int i;
+    for(i=1;i<arr.length;i++)
+    {
+        if(arr.A[i]>max)
+            max=arr.A[i];
+    }
+    return max;
+}
+int Min(struct Array arr)
+{
+    int min=arr.A[0];
+    int i;
+    for(i=1;i<arr.length;i++)
+    {
+        if(arr.A[i]<min)
+            min=arr.A[i];
+    }
+    return min;
+}
+int Sum(struct Array arr)
+{
+    int s=0;
+    int i;
+    for(i=0;i<arr.length;i++)
+         s+=arr.A[i];
+ 
+return s;
+}
+float Avg(struct Array arr)
+{
+     return (float)Sum(arr)/arr.length;
+}
+void Reverse(struct Array *arr)
+{
+     int *B;
+     int i,j;
+    
+    B=(int *)malloc(arr->length*sizeof(int));
+    for(i=arr->length-1,j=0;i>=0;i--,j++)
+        B[j]=arr->A[i];
+    for(i=0;i<arr->length;i++)
+        arr->A[i]=B[i];
+ 
+}
+void Reverse2(struct Array *arr)
+{
+    int i,j;
+    for(i=0,j=arr->length-1;i<j;i++,j--)
+    {
+        swap(&arr->A[i],&arr->A[j]);
+    }
+}
+void InsertSort(struct Array *arr,int x)
+{
+    int i=arr->length-1;
+    if(arr->length==arr->size)
+        return;
+    while(i>=0 && arr->A[i]>x)
+    {
+        arr->A[i+1]=arr->A[i];
+        i--;
+    }
+    arr->A[i+1]=x;
+    arr->length++;
+ 
+}
+int isSorted(struct Array arr)
+{
+    int i;
+    for(i=0;i<arr.length-1;i++)
+    {
+        if(arr.A[i]>arr.A[i+1])
+        return 0;
+    }
+    return 1;
+}
+void Rearrange(struct Array *arr)
+{
+    int i,j;
+    i=0;
+    j=arr->length-1;
+ 
+    while(i<j)
+    {
+    while(arr->A[i]<0)i++;
+    while(arr->A[j]>=0)j--;
+    if(i<j)swap(&arr->A[i],&arr->A[j]);
+    }
+}
+struct Array* Merge(struct Array *arr1,struct Array *arr2)
+{
+    int i,j,k;
+    i=j=k=0;
+ 
+ struct Array *arr3=(struct Array *)malloc(sizeof(struct Array));
+ 
+    while(i<arr1->length && j<arr2->length)
+   {
+    if(arr1->A[i]<arr2->A[j])
+        arr3->A[k++]=arr1->A[i++];
+    else
+        arr3->A[k++]=arr2->A[j++];
+    }
+    for(;i<arr1->length;i++)
+        arr3->A[k++]=arr1->A[i];
+    for(;j<arr2->length;j++)
+        arr3->A[k++]=arr2->A[j];
+
+ arr3->length=arr1->length+arr2->length;
+ arr3->size=10;
+ 
+ return arr3;
+}
+struct Array* Union(struct Array *arr1,struct Array *arr2)
+{
+    int i,j,k;
+    i=j=k=0;
+ 
+struct Array *arr3=(struct Array *)malloc(sizeof(struct Array));
+ 
+    while(i<arr1->length && j<arr2->length)
+    {
+        if(arr1->A[i]<arr2->A[j])
+            arr3->A[k++]=arr1->A[i++];
+        else if(arr2->A[j]<arr1->A[i])
+            arr3->A[k++]=arr2->A[j++];
+        else
+        {
+            arr3->A[k++]=arr1->A[i++];
+            j++;
+        }
+    }
+    for(;i<arr1->length;i++)
+        arr3->A[k++]=arr1->A[i];
+    for(;j<arr2->length;j++)
+        arr3->A[k++]=arr2->A[j];
+ 
+ arr3->length=k;
+ arr3->size=10;
+ 
+ return arr3;
+}
+struct Array* Intersection(struct Array *arr1,struct
+Array *arr2)
+{
+    int i,j,k;
+    i=j=k=0;
+ 
+ struct Array *arr3=(struct Array *)malloc(sizeof(struct Array));
+ 
+    while(i<arr1->length && j<arr2->length)
+   {
+    if(arr1->A[i]<arr2->A[j])
+        i++;
+    else if(arr2->A[j]<arr1->A[i])
+        j++;
+    else if(arr1->A[i]==arr2->A[j])
+    {
+    arr3->A[k++]=arr1->A[i++];
+    j++;
+    }
+ }
+ 
+ arr3->length=k;
+ arr3->size=10;
+ 
+ return arr3;
+}
+struct Array* Difference(struct Array *arr1,struct Array *arr2)
+{
+    int i,j,k;
+    i=j=k=0;
+ 
+ struct Array *arr3=(struct Array*)malloc(sizeof(struct Array));
+ 
+    while(i<arr1->length && j<arr2->length)
+    {
+        if(arr1->A[i]<arr2->A[j])
+            arr3->A[k++]=arr1->A[i++];
+        else if(arr2->A[j]<arr1->A[i])
+            j++;
+        else
+        {
+             i++;
+             j++;
+         }
+    }
+    for(;i<arr1->length;i++)
+    arr3->A[k++]=arr1->A[i];
+ 
+ 
+ arr3->length=k;
+ arr3->size=10;
+ 
+ return arr3;
+}
+int main()
+{
+    struct Array arr1;
+    int ch;
+    int x,index;
+ 
+    printf("Enter Size of Array");
+    scanf("%d",&arr1.size);
+    arr1.A=(int *)malloc(arr1.size*sizeof(int));
+    arr1.length=0;
+    do
+    {
+        printf("\n\nMenu\n");
+        printf("1. Insert\n");
+        printf("2. Delete\n");
+        printf("3. Search\n");
+        printf("4. Sum\n");
+        printf("5. Display\n");
+        printf("6.Exit\n");
+ 
+        printf("enter you choice ");
+        scanf("%d",&ch);
+ 
+        switch(ch)
+        {
+            case 1: printf("Enter an element and index ");
+                scanf("%d%d",&x,&index);
+                Insert(&arr1,index,x);
+                break;
+            case 2: printf("Enter index ");
+                scanf("%d",&index);
+                x=Delete(&arr1,index);
+                printf("Deleted Element is %d\n",x);
+                 break;
+            case 3:printf("Enter element to search ");
+                scanf("%d",&x);
+            index=LinearSearch(&arr1,x);
+            printf("Element index %d",index);
+                break;
+            case 4:printf("Sum is %d\n",Sum(arr1));
+                break;
+            case 5:Display(arr1);
+ 
+            }
+        }while(ch<6);
+    return 0;
+}
 
